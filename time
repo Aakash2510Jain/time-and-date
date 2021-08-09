@@ -1,0 +1,8 @@
+        for(CE_Session__c ceSession : courseSessionList){
+            String startTime = string.valueOf(ceSession.Start_Time_del__c);
+            string finaliseStartTime = startTime.substring(0, 5);
+            String[] timeOnly = finaliseStartTime.split(':');
+            String hourString = timeOnly.get(0);
+            String minString = timeOnly.get(1);
+            ceSession.Start_Time_del__c = Time.newInstance(integer.valueOf(hourString),integer.valueOf(minString) );
+        }
